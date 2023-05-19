@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom"; 
+import { Link } from "react-router-dom"; 
 import Lottie from "lottie-react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
