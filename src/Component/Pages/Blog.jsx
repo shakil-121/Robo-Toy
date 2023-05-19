@@ -10,12 +10,12 @@ const Blog = () => {
           Qus-1:What is an access token and refresh token? How do they work and
           where should we store them on the client-side?
         </h1>
-        {/* The button to open modal */}
+       
         <label htmlFor="my-modal" className="btn">
           See Answer
         </label>
 
-        {/* Put this part before </body> tag */}
+
         <input type="checkbox" id="my-modal" className="modal-toggle" />
         <div className="modal">
           <div className="modal-box">
@@ -45,12 +45,11 @@ const Blog = () => {
         <h1 className="text-2xl font-semibold pt-6">
           Qus-2:Compare SQL and NoSQL databases?
         </h1>
-        {/* The button to open modal */}
+  
         <label htmlFor="my-modal1" className="btn">
           See Answer
         </label>
 
-        {/* Put this part before </body> tag */}
         <input type="checkbox" id="my-modal1" className="modal-toggle" />
         <div className="modal">
           <div className="modal-box">
@@ -84,12 +83,10 @@ const Blog = () => {
         <h1 className="text-2xl font-semibold pt-6">
           Qus-3:What is express js? What is Nest JS ?
         </h1>
-        {/* The button to open modal */}
         <label htmlFor="my-modal2" className="btn">
           See Answer
         </label>
 
-        {/* Put this part before </body> tag */}
         <input type="checkbox" id="my-modal2" className="modal-toggle" />
         <div className="modal">
           <div className="modal-box">
