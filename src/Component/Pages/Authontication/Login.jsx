@@ -8,9 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { BiError } from "react-icons/bi";
 import { GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail } from "firebase/auth";
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import usetitle from "../../DaynamicTitle/usetitle";
 
 const Login = () => { 
-
+    usetitle('Login')
     const [error, setError] = useState(""); 
     // useTitle('Login');
     // const location=useLocation(); 

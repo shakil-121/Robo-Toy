@@ -6,10 +6,12 @@ import { FaGoogle, FaTwitter, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../AuthProvider/Authprovider';
 import { GithubAuthProvider, GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from "react-toastify";
+import usetitle from '../../DaynamicTitle/usetitle';
 
 
 
 const Registration = () => { 
+    usetitle('Registration')
     const googleProvider=new GoogleAuthProvider; 
     const githubProvider=new GithubAuthProvider;
     const [accepted, setAccepted] = useState(false);
