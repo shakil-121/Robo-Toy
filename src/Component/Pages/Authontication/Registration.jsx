@@ -4,15 +4,17 @@ import HelloRegAni from "../../../../src/assets/87845-hello.json";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaTwitter, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../AuthProvider/Authprovider';
-import { updateProfile } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from "react-toastify";
 
 
 
-const Registration = () => {
+const Registration = () => { 
+    const googleProvider=new GoogleAuthProvider; 
+    const githubProvider=new GithubAuthProvider;
     const [accepted, setAccepted] = useState(false);
     const [error, setError] = useState("");
-    const { registration } = useContext(AuthContext); 
+    const { registration,loginWithGoogle,loginWithGithub } = useContext(AuthContext); 
     // useTitle('Registration')
   
     const handelregistration = (event) => {
@@ -51,6 +53,32 @@ const Registration = () => {
         .then()
         .catch()
     };
+
+    const handlesigninGoogle=()=>{
+        loginWithGoogle(googleProvider)
+        .then((result)=>{ 
+            const loggeduser=result.user;
+            toast('Login Successfully with Google') 
+            setError('')
+        }) 
+        .catch(error=>{ 
+            setError(error.message)
+        })
+       }
+    
+      const handleSigninGithub=()=>{ 
+        loginWithGithub(githubProvider)
+        .then((result)=>{ 
+            const loggeduser=result.user;
+            toast('Login Successfully with GitHub') 
+            setError('')
+        }) 
+        .catch(error=>{ 
+            setError(error.message)
+        })
+    
+      }
+    
   
     const acceptTrams = (event) => {
       setAccepted(event.target.checked);
@@ -121,29 +149,33 @@ const Registration = () => {
             id="exampleCheck1"
           />
           <label class="form-check-label" for="exampleCheck1">
-            Accept{" "}
+            <span className='ps-2'>  Accept </span>
             <Link to="/trams" className="text-decoration-none text-blue-500">
               Trams & Condition
             </Link>
           </label>
         </div>
-            <div className="form-control mt-6">
+            <div className="form-control mt-2">
               <button 
                disabled={!accepted}
                type="submit"
               className="btn bg-[#050931] border-none">Registration</button>
             </div>
-          <p className="text-center pb-6 text-red-600">
+          <p className="text-center pb-2 text-red-600">
             {error}
           </p>
             <p className="text-center">Or Sign-in with</p>
-            <div className="flex text-center gap-8 py-4 justify-center">
-              <FaGithub className="h-6 w-6"></FaGithub>
-              <FaGoogle className="h-6 w-6"></FaGoogle>
-              <FaTwitter className="h-6 w-6"></FaTwitter>
+            <div className="flex text-center gap-8 py-2 justify-center">
+                <Link onClick={handleSigninGithub}>
+                  <FaGithub className="h-6 w-6"></FaGithub>
+                </Link>
+                <Link onClick={handlesigninGoogle}>
+                  <FaGoogle className="h-6 w-6"></FaGoogle>
+                </Link>
+
             </div>
           </form>
-          <p className="text-center pb-6">
+          <p className="text-center pb-2">
             Already have an account ?
             <Link className="text-blue-600 ps-2" to="/login">
               LogIn

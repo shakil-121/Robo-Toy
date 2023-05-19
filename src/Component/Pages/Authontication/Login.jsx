@@ -98,7 +98,8 @@ const Login = () => {
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
-              <input
+              <input 
+              ref={emailRef}
                 name="email"
                 type="text"
                 placeholder="email"
@@ -116,7 +117,7 @@ const Login = () => {
                 className="input input-bordered"
               />
               <label className="label">
-                <p onClick={handelResetPassword}> Forgot password?</p>
+                <Link onClick={handelResetPassword}><p className="text-blue-600"> Forgot password?</p></Link>
               </label>
             </div>
             <div className="form-control mt-6">

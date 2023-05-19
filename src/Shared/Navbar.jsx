@@ -10,13 +10,13 @@ const Navbar = () => {
     logOut().then().catch();
   };
   return (
-    <div className="navbar sticky top-0 z-10 bg-[#050931] px-20">
+    <div className="navbar sticky top-0 z-10 bg-[#050931] md:px-20">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -33,16 +33,16 @@ const Navbar = () => {
             tabIndex={0}
             className="text-white font-semibold menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <li className="text-black">
              <Link to='/'>Home</Link>
             </li>
-            <li tabIndex={0}>
+            <li className="text-black" tabIndex={0}>
               <Link to='/all-toys'>All Toys</Link>
             </li>
-            <li>
+            <li className="text-black">
               <Link to='/my-toys'>My Toys</Link>
             </li> 
-            <li>
+            <li className="text-black">
             <Link to='blog'>Blog</Link> 
             </li>
           </ul>
