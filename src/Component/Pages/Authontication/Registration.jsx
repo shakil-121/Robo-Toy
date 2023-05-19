@@ -49,7 +49,7 @@ const Registration = () => {
         photoURL: photo,
       })
         .then()
-        .catch();
+        .catch()
     };
   
     const acceptTrams = (event) => {
@@ -68,7 +68,7 @@ const Registration = () => {
             <h1 className="text-3xl font-bold text-center">SignUp</h1>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text font-semibold">Name</span>
               </label>
               <input
                 name="name"
@@ -79,7 +79,7 @@ const Registration = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo Url</span>
+                <span className="label-text font-semibold">Photo Url</span>
               </label>
               <input
                 name="photo"
@@ -90,7 +90,7 @@ const Registration = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text font-semibold">Email</span>
               </label>
               <input
                 name="email"
@@ -102,7 +102,7 @@ const Registration = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text font-semibold">Password</span>
               </label>
               <input
                 name="password"
