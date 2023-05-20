@@ -32,7 +32,7 @@ const Footer = () => {
           <p className="text-white">
             ROBO TOY Company
             <br />
-           Copyright ©SHAHADAT Hossain 2023 - All right reserved
+           Copyright ©SHAHADAT HOSSAIN 2023 - All right reserved
           </p>
         </div>
         <div className="md:place-self-center md:justify-self-end">
