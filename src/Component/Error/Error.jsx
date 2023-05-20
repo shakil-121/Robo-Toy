@@ -13,7 +13,6 @@ const Error = () => {
       />
       <div className="flex items-center justify-center">
       <a href="/">
-        {" "}
         <button className="btn btn-primary">Back To Home</button>
       </a>
       </div>

@@ -5,6 +5,12 @@ import Login from "../Pages/Authontication/Login";
 import Registration from "../Pages/Authontication/Registration";
 import Error from "../Error/Error";
 import Blog from "../Pages/Blog";
+import AllToy from "../Pages/AllToy";
+import AddToy from "../Pages/Home/OtherComponent/AddToy";
+import Toy from "../Pages/Home/OtherComponent/Toy";
+import MyToys from "../Pages/MyToys";
+import UpdateToy from "../Pages/Home/OtherComponent/UpdateToy";
+
 
 const router = createBrowserRouter([
   {
@@ -26,6 +32,28 @@ const router = createBrowserRouter([
       {
         path:"/blog", 
         element:<Blog></Blog>
+      },
+      {
+        path:"/alltoy", 
+        element:<AllToy></AllToy>
+      },
+      {
+        path:"/addtoy", 
+        element:<AddToy></AddToy>
+      },
+      {
+        path:'/toy/:id', 
+        element:<Toy></Toy>, 
+        loader:({params})=>fetch(`http://localhost:5000/toys/${params.id}`)
+      },
+      {
+        path:"/mytoys", 
+        element:<MyToys></MyToys>
+      }, 
+      {
+        path:"/update/:id", 
+        element:<UpdateToy></UpdateToy>, 
+        loader:({params})=>fetch(`http://localhost:5000/toys/${params.id}`)
       }
     ],
   },

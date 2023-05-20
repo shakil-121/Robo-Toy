@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage:{
-        'banner-bg':'url(../../src/assets/bg.png)'
+        'banner-bg':'url(../../src/assets/AllToy.png)'
       }
     },
   },

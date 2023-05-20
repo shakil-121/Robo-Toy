@@ -4,9 +4,9 @@ import usetitle from "../DaynamicTitle/usetitle";
 const Blog = () => {
   usetitle("Blog");
   return (
-    <div className="md:m-12">
+    <div className="md:m-12 p-2">
       <div>
-        <h1 className="text-2xl font-semibold pt-6">
+        <h1 className="md:text-2xl font-semibold pt-6">
           Qus-1:What is an access token and refresh token? How do they work and
           where should we store them on the client-side?
         </h1>
@@ -42,7 +42,7 @@ const Blog = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-2xl font-semibold pt-6">
+        <h1 className="md:text-2xl font-semibold pt-6">
           Qus-2:Compare SQL and NoSQL databases?
         </h1>
   
@@ -80,7 +80,7 @@ const Blog = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-2xl font-semibold pt-6">
+        <h1 className="md:text-2xl font-semibold pt-6">
           Qus-3:What is express js? What is Nest JS ?
         </h1>
         <label htmlFor="my-modal2" className="btn">
@@ -105,7 +105,7 @@ const Blog = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-2xl font-semibold pt-6">
+        <h1 className="md:text-2xl font-semibold pt-6">
           Qus-4:What is MongoDB aggregate and how does it work ?
         </h1>
         {/* The button to open modal */}

@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Component/AuthProvider/Authprovider";
 
 const Navbar = () => {
-  const {user,logOut}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut().then().catch();
@@ -34,16 +34,16 @@ const Navbar = () => {
             className="text-white font-semibold menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li className="text-black">
-             <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="text-black" tabIndex={0}>
-              <Link to='/all-toys'>All Toys</Link>
+              <Link to="/all-toys">All Toys</Link>
             </li>
             <li className="text-black">
-              <Link to='/my-toys'>My Toys</Link>
-            </li> 
+              <Link to="/my-toys">My Toys</Link>
+            </li>
             <li className="text-black">
-            <Link to='blog'>Blog</Link> 
+              <Link to="blog">Blog</Link>
             </li>
           </ul>
         </div>
@@ -54,28 +54,68 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="text-white font-semibold menu menu-horizontal px-1">
           <li>
-          <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li tabIndex={0}>
-          <Link to='/all-toys'>All Toys</Link>
+            <Link to="/alltoy">All Toys</Link>
           </li>
+
+          {user ? (
+            <>
+              <li>
+                <Link to="/mytoys">My Toys</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
+
           <li>
-          <Link to='/my-toys'>My Toys</Link>
-          </li> 
-          <li>
-            <Link to='blog'>Blog</Link>
+            <Link to="blog">Blog</Link>
           </li>
+          {
+            user?<></>:<>
+            <li>
+            <Link to="registration">Sign Up</Link>
+          </li>
+            </>
+          }
+          {user ? (
+            <>
+              <li>
+                <Link to="/addtoy">Add Toy</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-       {user?<>
-        <Link onClick={handleLogout} className="btn bg-white text-black px-6 py-2">Logout</Link>
-        <div className="ms-4">
-          <img title={user.displayName} className="rounded-full h-12 w-12  border-4 border-white" src={user.photoURL} alt="" />
-        </div>
-       </>:<>
-       <Link className="btn  bg-white text-black" to='/login'>Login</Link>
-       </>}
+        {user ? (
+          <>
+            <Link
+              onClick={handleLogout}
+              className="btn bg-white text-black px-6 py-2"
+            >
+              Logout
+            </Link>
+            <div className="ms-4">
+              <img
+                title={user.displayName}
+                className="rounded-full  h-12 w-12  border-4 border-white"
+                src={user.photoURL}
+                alt=""
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <Link className="btn  bg-white text-black" to="/login">
+              Login
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

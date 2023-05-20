@@ -87,11 +87,11 @@ const Login = () => {
     <div>
       <div className="hero w-full min-h-screen rounded-lg bg-base-200">
       <div className="hero-content flex-col py-4  lg:flex-row">
-        <div className="text-center w-1/2 lg:text-left">
+        <div className="text-center md:w-1/2 lg:text-left">
           <Lottie animationData={loginAnimation} loop={true} />
         </div>
         
-        <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 md:w-1/2 md:max-w-sm shadow-2xl bg-base-100">
           
           <form onSubmit={handleLogin} className="card-body">
             <h1 className="text-3xl font-bold text-center">Login</h1>

@@ -3,6 +3,7 @@ import Hero from './Hero';
 import AllBrands from './AllBrands';
 import Gallery from './Gallery';
 import usetitle from '../../DaynamicTitle/usetitle';
+import ShopByCategory from './ShopByCategory';
 
 const Home = () => { 
     usetitle('Home')
@@ -10,7 +11,8 @@ const Home = () => {
         <div>
            <Hero></Hero>
            <AllBrands></AllBrands>
-           <Gallery></Gallery>
+           <Gallery></Gallery> 
+           <ShopByCategory></ShopByCategory>
         </div>
     );
 };
