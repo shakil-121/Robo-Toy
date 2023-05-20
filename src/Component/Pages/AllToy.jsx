@@ -9,7 +9,7 @@ const AllToy = () => {
     const [searchText, setSearchText] = useState(""); 
     const [visible,setVisible]=useState([20]); 
     const showall=()=>{ 
-        setVisible((pervalue)=>pervalue+2);
+        setVisible((perval)=>perval+10);
     }
    const [toys,setToys]=useState([]); 
    useEffect(()=>{
