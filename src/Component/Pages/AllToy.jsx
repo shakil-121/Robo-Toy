@@ -7,11 +7,11 @@ import { FaSearch } from "react-icons/fa";
 
 const AllToy = () => { 
     const [searchText, setSearchText] = useState(""); 
-    const [visible,setVisible]=useState([20]) 
+    const [visible,setVisible]=useState([20]); 
     const showall=()=>{ 
         setVisible((pervalue)=>pervalue+2);
     }
-   const [toys,setToys]=useState([]) 
+   const [toys,setToys]=useState([]); 
    useEffect(()=>{
     fetch('http://localhost:5000/toys')
     .then(res=>res.json()) 
