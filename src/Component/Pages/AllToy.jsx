@@ -49,8 +49,8 @@ const AllToy = () => {
 
             }
             </div>
-            <div className="showAll flex justify-center my-4"> 
-                <button className='btn btn-primary"'  onClick={showall}>Show All</button>
+            <div className="showAll flex justify-center my-6"> 
+                <button className='btn btn-primary"'  onClick={showall}>Show All Toy </button>
                 </div>
             </div>
         </div>
