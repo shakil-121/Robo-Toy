@@ -12,7 +12,7 @@ const Home = () => {
            <Hero></Hero>
            <AllBrands></AllBrands>
            <Gallery></Gallery> 
-           <ShopByCategory></ShopByCategory>
+           <ShopByCategory></ShopByCategory> 
         </div>
     );
 };

@@ -2,6 +2,8 @@ import React, { useEffect, useState }  from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import SingleToyCard from "../SingleToyCard";
+import banner1 from '../../../assets/brand-logo/banner1.png'
+import banner2 from '../../../assets/brand-logo/banner2.png'
 
 const ShopByCategory = () => {  
   const [toys,settoys]=useState([])
@@ -17,7 +19,9 @@ const ShopByCategory = () => {
   },[category]); 
   
   return (
-    <div className="my-24 mx-10">
+
+     <div>
+       <div className="my-24 mx-10">
       <div>
         <h1 className="font-bold text-4xl text-center">Shop By Category</h1>
       </div>
@@ -68,7 +72,14 @@ const ShopByCategory = () => {
         </Tabs>
       </div>
     </div>
+      <div className="md:flex justify-center items-center gap-3 my-16">
+        <img className="rounded-lg hover:shadow-[0px_7px_36px_10px_#44337a] duration-500" src={banner1} alt="" />
+        <img className="rounded-lg hover:shadow-[0px_7px_36px_10px_#44337a] duration-500" src={banner2} alt="" />
+      </div>
+     </div>
   );
 };
 
 export default ShopByCategory;
+
+
