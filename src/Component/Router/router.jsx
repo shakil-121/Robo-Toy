@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path:'/toy/:id', 
         element:<Toy></Toy>, 
-        loader:({params})=>fetch(`http://localhost:5000/toys/${params.id}`)
+        loader:({params})=>fetch(`https://robo-toy-server-shakil-121.vercel.app/toys/${params.id}`)
       },
       {
         path:"/mytoys", 
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path:"/update/:id", 
         element:<UpdateToy></UpdateToy>, 
-        loader:({params})=>fetch(`http://localhost:5000/toys/${params.id}`)
+        loader:({params})=>fetch(`https://robo-toy-server-shakil-121.vercel.app/toys/${params.id}`)
       }
     ],
   },

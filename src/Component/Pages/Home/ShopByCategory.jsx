@@ -1,207 +1,72 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import SingleToyCard from "../SingleToyCard";
 
-const ShopByCategory = () => {
+const ShopByCategory = () => {  
+  const [toys,settoys]=useState([])
+  const [category,setCategory]=useState("TalkingRobo") 
+  const handleCategory=category=>{ 
+    setCategory(category)
+  } 
+
+  useEffect(()=>{
+   fetch(`https://robo-toy-server-shakil-121.vercel.app/category/${category}`)
+   .then(res=>res.json()) 
+  .then(data=>settoys(data))
+  },[category]) 
+  
   return (
-    <div className="my-10 mx-10">
+    <div className="my-24 mx-10">
       <div>
         <h1 className="font-bold text-4xl text-center">Shop By Category</h1>
       </div>
       <div>
-        <Tabs forceRenderTabPanel defaultIndex={1}>
-          <TabList>
-            <Tab>The Simpsons</Tab>
-            <Tab>Futurama</Tab>
-            <Tab>Futurama</Tab>
+        <Tabs className="my-6">
+
+
+          <TabList className="font-semibold bg-blue-950 rounded-lg p-4 text-white">
+            <Tab onClick={()=>handleCategory("TalkingRobo")}>Talking Robo</Tab>
+            <Tab onClick={()=>handleCategory("AnimalRobo")}>Animal Robo</Tab>
+            <Tab onClick={()=>handleCategory("BirdRobo")}>Bird Robo</Tab>
           </TabList>
+
+
           <TabPanel>
-            <Tabs forceRenderTabPanel>
-              <TabList>
-                <Tab>Homer Simpson</Tab>
-                <Tab>Marge Simpson</Tab>
-              </TabList>
-              <TabPanel>
-                <p>Husband of Marge; father of Bart, Lisa, and Maggie.</p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Homer_Simpson_2006.png/212px-Homer_Simpson_2006.png"
-                  alt="Homer Simpson"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>Wife of Homer; mother of Bart, Lisa, and Maggie.</p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Marge_Simpson.png/220px-Marge_Simpson.png"
-                  alt="Marge Simpson"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Oldest child and only son of Homer and Marge; brother of Lisa
-                  and Maggie.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png"
-                  alt="Bart Simpson"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Middle child and eldest daughter of Homer and Marge; sister of
-                  Bart and Maggie.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Lisa_Simpson.png/200px-Lisa_Simpson.png"
-                  alt="Lisa Simpson"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Youngest child and daughter of Homer and Marge; sister of Bart
-                  and Lisa.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Maggie_Simpson.png/223px-Maggie_Simpson.png"
-                  alt="Maggie Simpson"
-                />
-              </TabPanel>
-            </Tabs>
+            <div className="w-full md:grid  md:grid-cols-3 gap-4 my-20">
+            {
+              toys.map(toy=><SingleToyCard
+              key={toy?._id} 
+              toy={toy}
+              >
+              </SingleToyCard>)
+            }
+            </div>
           </TabPanel>
           <TabPanel>
-            <Tabs forceRenderTabPanel>
-              <TabList>
-                <Tab>Philip J. Fry</Tab>
-                <Tab>Turanga Leela</Tab>
-              </TabList>
-              <TabPanel>
-                <p>
-                  Protagonist, from the 20th Century. Delivery boy. Many times
-                  great-uncle to Professor Hubert Farnsworth. Suitor of Leela.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Philip_Fry.png/175px-Philip_Fry.png"
-                  alt="Philip J. Fry"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Mutant cyclops. Captain of the Planet Express Ship. Love
-                  interest of Fry.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Turanga_Leela.png/150px-Turanga_Leela.png"
-                  alt="Turanga Leela"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  A kleptomaniacal, lazy, cigar-smoking, heavy-drinking robot
-                  who is Fry's best friend. Built in Tijuana, Mexico, he is the
-                  Planet Express Ship's cook.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
-                  alt="Bender Bending Rodriguez"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Chinese-Martian intern at Planet Express. Fonfon Ru of Kif
-                  Kroker.
-                </p>
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Many times great-nephew of Fry. CEO and owner of Planet
-                  Express delivery company. Tenured professor of Mars
-                  University.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/FuturamaProfessorFarnsworth.png/175px-FuturamaProfessorFarnsworth.png"
-                  alt="Professor Hubert J. Farnsworth"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Alien from Decapod 10. Planet Express' staff doctor and
-                  steward. Has a medical degree and Ph.D in art history.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Dr_John_Zoidberg.png/200px-Dr_John_Zoidberg.png"
-                  alt="Doctor John Zoidberg"
-                />
-              </TabPanel>
-            </Tabs>
+          <div className="w-full md:grid  md:grid-cols-3 gap-4 my-20">
+            {
+              toys.map(toy=><SingleToyCard
+              key={toy?._id} 
+              toy={toy}
+              >
+              </SingleToyCard>)
+            }
+            </div>
           </TabPanel>
           <TabPanel>
-            <Tabs forceRenderTabPanel>
-              <TabList>
-                <Tab>Philip J. Fry</Tab>
-                <Tab>Turanga Leela</Tab>
-              </TabList>
-              <TabPanel>
-                <p>
-                  Protagonist, from the 20th Century. Delivery boy. Many times
-                  great-uncle to Professor Hubert Farnsworth. Suitor of Leela.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Philip_Fry.png/175px-Philip_Fry.png"
-                  alt="Philip J. Fry"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Mutant cyclops. Captain of the Planet Express Ship. Love
-                  interest of Fry.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Turanga_Leela.png/150px-Turanga_Leela.png"
-                  alt="Turanga Leela"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  A kleptomaniacal, lazy, cigar-smoking, heavy-drinking robot
-                  who is Fry's best friend. Built in Tijuana, Mexico, he is the
-                  Planet Express Ship's cook.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png"
-                  alt="Bender Bending Rodriguez"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Chinese-Martian intern at Planet Express. Fonfon Ru of Kif
-                  Kroker.
-                </p>
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Many times great-nephew of Fry. CEO and owner of Planet
-                  Express delivery company. Tenured professor of Mars
-                  University.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/FuturamaProfessorFarnsworth.png/175px-FuturamaProfessorFarnsworth.png"
-                  alt="Professor Hubert J. Farnsworth"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Alien from Decapod 10. Planet Express' staff doctor and
-                  steward. Has a medical degree and Ph.D in art history.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Dr_John_Zoidberg.png/200px-Dr_John_Zoidberg.png"
-                  alt="Doctor John Zoidberg"
-                />
-              </TabPanel>
-            </Tabs>
+          <div className="w-full md:grid  md:grid-cols-3 gap-4 my-20">
+            {
+              toys.map(toy=><SingleToyCard
+              key={toy?._id} 
+              toy={toy}
+              >
+              </SingleToyCard>)
+            }
+            </div>
           </TabPanel>
         </Tabs>
       </div>
-      
     </div>
   );
 };

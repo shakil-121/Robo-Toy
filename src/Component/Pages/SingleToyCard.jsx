@@ -20,7 +20,7 @@ const SingleToyCard = ({ toy }) => {
     detail_description,
   } = toy;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl hover:shadow-[0px_20px_60px_0px_#e53e3e] hover:duration-1000">
+    <div className="card w-full  bg-base-100 shadow-xl hover:shadow-[0px_20px_60px_0px_#e53e3e] hover:duration-1000">
       <figure>
         <img
            className="w-full h-96"

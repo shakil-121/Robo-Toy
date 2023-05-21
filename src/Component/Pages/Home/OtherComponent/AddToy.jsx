@@ -24,7 +24,7 @@ const AddToy = () => {
     const newToy={name,sellername,selleremail,category,subcategory,picture_url,rating,quantity,price,detail_description}  
     console.log(newToy); 
 
-    fetch('http://localhost:5000/toys',{
+    fetch('https://robo-toy-server-shakil-121.vercel.app/toys',{
       method:"POST", 
       headers:{
          "content-type":"application/json"

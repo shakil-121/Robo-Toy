@@ -27,7 +27,7 @@ const UpdateToy = () => {
      const updateToy={name,sellername,selleremail,category,subcategory,picture_url,rating,quantity,price,detail_description}  
      console.log(updateToy); 
       
-     fetch(`http://localhost:5000/toys/${_id}`, {
+     fetch(`https://robo-toy-server-shakil-121.vercel.app/toys/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

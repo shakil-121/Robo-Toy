@@ -33,18 +33,42 @@ const Navbar = () => {
             tabIndex={0}
             className="text-white font-semibold menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li className="text-black">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="text-black" tabIndex={0}>
-              <Link to="/all-toys">All Toys</Link>
-            </li>
-            <li className="text-black">
-              <Link to="/my-toys">My Toys</Link>
-            </li>
-            <li className="text-black">
-              <Link to="blog">Blog</Link>
-            </li>
+             <li>
+            <Link className="text-black" to="/">Home</Link>
+          </li>
+          <li tabIndex={0}>
+            <Link className="text-black" to="/alltoy">All Toys</Link>
+          </li>
+
+          {user ? (
+            <>
+              <li>
+                <Link className="text-black" to="/mytoys">My Toys</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
+
+          <li>
+            <Link className="text-black" to="blog">Blog</Link>
+          </li>
+          {
+            user?<></>:<>
+            <li>
+            <Link className="text-black" to="registration">Sign Up</Link>
+          </li>
+            </>
+          }
+          {user ? (
+            <>
+              <li>
+                <Link className="text-black" to="/addtoy">Add Toy</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
           </ul>
         </div>
         <div>

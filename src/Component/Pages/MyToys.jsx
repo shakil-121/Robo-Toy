@@ -8,7 +8,7 @@ const MyToys = () => {
   console.log(mytoys);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/${user?.email}`)
+    fetch(`https://robo-toy-server-shakil-121.vercel.app/mytoys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setmytoys(data));
   }, [user])

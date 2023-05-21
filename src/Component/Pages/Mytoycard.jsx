@@ -33,7 +33,7 @@ const Mytoycard = ({ toy, setmytoys, mytoys }) => {
         //     'Your file has been deleted.',
         //     'success'
         //   )
-        fetch(`http://localhost:5000/mytoys/${_id}`, {
+        fetch(`https://robo-toy-server-shakil-121.vercel.app/mytoys/${_id}`, {
           method: "DELETE"
         })
           .then((res) => res.json())

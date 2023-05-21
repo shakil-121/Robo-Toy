@@ -8,16 +8,15 @@ const Toy = () => {
   const toy = useLoaderData();
   return (
     <div className="mx-24 my-10">
-      <div className="card card-side bg-base-100 shadow-xl">
-        <figure>
-        <img className="border-1 w-full h-60" src={toy?.picture_url} alt="" />
+      <div className="card card-side bg-base-100 shadow-xl border border-x-amber-200">
+        <figure className="w-1/2">
+        <img className="border-1 w-full h-full p-10" src={toy?.picture_url} alt="" />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">{toy?.name}</h2>
-          <h2 className="card-title">Price : ${toy?.price}</h2>
-          <h2 className="card-title"> Available Quantity: {toy?.quantity}</h2>
+        <div className="card-body w-1/2 pt-32">
+          <h2 className="card-title text-5xl">{toy?.name}</h2>
+          <h2 className="card-title text-3xl">Price : ${toy?.price}</h2>
+          <h2 className="card-title text-2xl"> Available Quantity: {toy?.quantity}</h2>
           <p>Details: {toy?.detail_description}</p>
-          <div>
           <Rating
           className="text-yellow-500"
             placeholderRating={toy?.rating}
@@ -32,7 +31,6 @@ const Toy = () => {
                 <FaStar></FaStar>
             }
           /> 
-          </div>
           <div className="card-actions justify-end">
             <button className="btn btn-primary"><FaShoppingCart></FaShoppingCart>BUY NOW</button>
           </div>

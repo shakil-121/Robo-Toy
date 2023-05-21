@@ -13,13 +13,13 @@ const AllToy = () => {
     }
    const [toys,setToys]=useState([]); 
    useEffect(()=>{
-    fetch('http://localhost:5000/toys')
+    fetch('https://robo-toy-server-shakil-121.vercel.app/toys')
     .then(res=>res.json()) 
     .then(data=>setToys(data))
    },[])
   
    const handleSearch = () => {
-    fetch(`http://localhost:5000/gettoys/${searchText}`)
+    fetch(`https://robo-toy-server-shakil-121.vercel.app/gettoys/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
