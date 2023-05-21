@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link, useLocation, useNavigate } from "react-router-dom"; 
 import Lottie from "lottie-react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,12 +11,11 @@ import { AuthContext } from "../../AuthProvider/Authprovider";
 import usetitle from "../../DaynamicTitle/usetitle";
 
 const Login = () => { 
-    usetitle('Login')
+    usetitle('Login') 
+    const location=useLocation(); 
+  const navigate=useNavigate()
     const [error, setError] = useState(""); 
-    // useTitle('Login');
-    // const location=useLocation(); 
-    // const navigate=useNavigate()
-    // const from=location.state?.from?.pathname || '/'
+    const from=location.state?.from?.pathname || '/'
     const {Loginprocess,passwordreset,loginWithGoogle,loginWithGithub}=useContext(AuthContext)
     const emailRef=useRef() 
     const googleProvider=new GoogleAuthProvider(); 
@@ -35,7 +34,7 @@ const Login = () => {
           console.log(loggeduser);
           toast("Login Successfully !!");
           setError("");
-        //   navigate(from,{replace:true})
+          navigate(from,{replace:true})
         })
         .catch((error) => {
           setError(error.message);
