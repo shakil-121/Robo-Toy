@@ -3,6 +3,7 @@ import SingleToyCard from './SingleToyCard';
 import banner from '../../assets/AllToy.png' 
 import usetitle from '../DaynamicTitle/usetitle';
 import { FaSearch } from "react-icons/fa";
+import SingleToyTable from './SingleToyTable';
 
 
 const AllToy = () => { 
@@ -40,14 +41,29 @@ const AllToy = () => {
                 type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
                 <button onClick={handleSearch} class="btn btn-primary ms-4"><FaSearch></FaSearch> Search</button>
                 </div>
-            <div className='md:grid grid-cols-3 gap-4'>
+            <div>
+            <table className="table w-full">
+                    <thead>
+                        <tr className="grid grid-cols-5 justify-items-center bg-slate-200">
+                            <th className="bg-slate-200">picture</th>
+                            <th className="bg-slate-200">Name</th>
+                            <th className="bg-slate-200">Seller</th>
+                            <th className="bg-slate-200">Price</th>
+                            <th className="bg-slate-200">details</th>
+                        </tr>
+                    </thead>
+          </table>
+
             {
-                toys.slice(0,visible).map(toy=><SingleToyCard 
+
+                toys.slice(0,visible).map(toy=><SingleToyTable
                 key={toy._id}
                 toy={toy}
-                ></SingleToyCard>)
+                ></SingleToyTable>)
+
 
             }
+
             </div>
             <div className="showAll flex justify-center my-6"> 
                 <button className='btn btn-primary"'  onClick={showall}>Show All Toy </button>
