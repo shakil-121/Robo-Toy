@@ -14,7 +14,7 @@ const ShopByCategory = () => {
    fetch(`https://robo-toy-server-shakil-121.vercel.app/category/${category}`)
    .then(res=>res.json()) 
   .then(data=>settoys(data))
-  },[category]) 
+  },[category]); 
   
   return (
     <div className="my-24 mx-10">
