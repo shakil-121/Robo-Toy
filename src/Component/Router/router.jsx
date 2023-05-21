@@ -10,6 +10,7 @@ import AddToy from "../Pages/Home/OtherComponent/AddToy";
 import Toy from "../Pages/Home/OtherComponent/Toy";
 import MyToys from "../Pages/MyToys";
 import UpdateToy from "../Pages/Home/OtherComponent/UpdateToy";
+import PrivateRoute from "../Private/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/toy/:id', 
-        element:<Toy></Toy>, 
+        element:<PrivateRoute><Toy></Toy></PrivateRoute>, 
         loader:({params})=>fetch(`https://robo-toy-server-shakil-121.vercel.app/toys/${params.id}`)
       },
       {
